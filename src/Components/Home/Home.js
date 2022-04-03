@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewsDemo from '../ReviewsDemo/ReviewsDemo';
 
 const Home = () => {
     return (
@@ -11,6 +12,9 @@ const Home = () => {
             <div>
                 <img className='rounded' src="https://i.pinimg.com/564x/0b/34/50/0b34500c0bc0f69e01bfb8a338d9c64a.jpg" alt="" />
             </div>
+        </div>
+        <div>
+            <ReviewsDemo />
         </div>
         </>
     );
