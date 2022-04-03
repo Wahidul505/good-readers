@@ -16,7 +16,7 @@ const ReviewCart = ({ review }) => {
         stars = <><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></>
     }
     return (
-        <div className='text-center p-4 bg-emerald-100 rounded-3xl shadow-xl'>
+        <div className='text-center p-4 bg-emerald-100 rounded-3xl shadow-xl mb-2'>
             <img className='mx-auto rounded-full' src={image} alt="" />
             <p className='text-xl my-2 text-pink-800 font-semibold'>{name}</p>
             <p className='text-gray-700' title={reviewDetail}>{reviewDetail.length < 200 ? reviewDetail : reviewDetail.slice(0, 200) + '...'}</p>

@@ -10,7 +10,7 @@ const ReviewsDemo = () => {
     return (
         <div className='p-8'>
             <h1 className='text-3xl text-center text-emerald-600 mb-8'>Reader Reviews</h1>
-            <div className='grid grid-cols-3 gap-6 mb-12'>
+            <div className='md:grid grid-cols-3 gap-6 mb-12'>
                 {
                     demoReviews.map(review => <ReviewCart 
                         key={review.id}
