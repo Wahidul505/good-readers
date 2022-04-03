@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ShortReviews = () => {
+const ReviewsDemo = () => {
     return (
         <div>
+            <h1>Reader Reviews</h1>
             
         </div>
     );
 };
 
-export default ShortReviews;
+export default ReviewsDemo;
