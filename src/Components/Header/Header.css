@@ -1,0 +1,10 @@
+.active{
+    color: rgba(230, 55, 55, 0.938);
+}
+.active::after{
+    content: '';
+    width: 100%;
+    display: block;
+    border: 1px solid darkred;
+    border-radius: 10px;
+}
