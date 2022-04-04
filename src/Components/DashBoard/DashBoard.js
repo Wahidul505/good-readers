@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Area, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, Pie, PieChart, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Tooltip, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, Pie, PieChart, Tooltip, XAxis, YAxis } from 'recharts';
 
 const DashBoard = () => {
-    const [info, setInfo] = useState([]);
+    const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('info.json')
+        fetch('data.json')
             .then(res => res.json())
-            .then(data => setInfo(data));
+            .then(json => setData(json));
     }, [])
     return (
         <div className='md:grid grid-cols-2 p-8'>
@@ -16,7 +16,7 @@ const DashBoard = () => {
             <BarChart
                 width={500}
                 height={500}
-                data={info}
+                data={data}
                 margin={{
                     top: 20,
                     right: 30,
@@ -39,7 +39,7 @@ const DashBoard = () => {
             <ComposedChart
                 width={500}
                 height={400}
-                data={info}
+                data={data}
                 margin={{
                     top: 20,
                     right: 20,
@@ -61,21 +61,32 @@ const DashBoard = () => {
             <div>
             <h1 className='text-center text-xl text-cyan-600 mt-8'>Investment VS Revenue</h1>
             <PieChart width={500} height={500}>
-                <Pie data={info} dataKey="investment" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
-                <Pie data={info} dataKey="revenue" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
+                <Pie data={data} dataKey="investment" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
+                <Pie data={data} dataKey="revenue" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
                 <Tooltip />
             </PieChart>
             </div>
 
             <div>
             <h1 className='text-center text-xl text-cyan-600 mt-8'>Month Wise Sell</h1>
-            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={info} width={500} height={500}>
-                <PolarGrid />
-                <Tooltip />
-                <PolarAngleAxis dataKey="subject" />
-                <PolarRadiusAxis />
-                <Radar name="month" dataKey="sell" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-            </RadarChart>
+            <AreaChart
+          width={500}
+          height={400}
+          data={data}
+          margin={{
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Area type="monotone" dataKey="investment" stackId="1" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="revenue" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+        </AreaChart>
             </div>
         </div>
     );
