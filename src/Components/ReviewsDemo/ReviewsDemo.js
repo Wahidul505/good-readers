@@ -18,7 +18,7 @@ const ReviewsDemo = () => {
                          />)
                 }
             </div>
-            <p className='text-center'><button onClick={()=>navigate('/reviews')} className='text-xl text-white bg-rose-600 rounded-xl p-2'>See all Reviews</button></p>
+            <p className='text-center'><button onClick={()=>navigate('/reviews')} className='bg-indigo-400 p-2 rounded-xl text-white hover:bg-teal-600 text-xl'>See all Reviews</button></p>
         </div>
     );
 };
